@@ -9,23 +9,29 @@ import { CartComponent } from './features/cart/components/cart/cart.component';
 import { NotFoundComponent } from './core/auth/components/not-found/not-found.component';
 import { AuthLayoutComponent } from './core/layouts/auth/auth-layout/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './core/layouts/auth/main-layout/main-layout/main-layout.component';
+import { ProductListComponent } from './features/product/components/product-list/product-list.component';
+import { BrandListComponent } from './features/brands/components/brand-list/brand-list.component';
+import { ProductDetalisComponent } from './features/product/components/product-detalis/product-detalis.component';
 
 export const routes: Routes = [
     {
         path: '', component: AuthLayoutComponent, children: [
             // { path: '', redirectTo: 'login', pathMatch: 'full' },
-            { path: 'login', component: LoginComponent },
-            { path: 'register', component: RegisterComponent },
+            { path: 'login', component: LoginComponent, title: 'Login' },
+            { path: 'register', component: RegisterComponent, title: 'Register' },
             // { path: '**', component: NotFoundComponent }
         ]
     },
     {
         path: '', component: MainLayoutComponent, children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'category', component: CategoryComponent },
-            { path: 'cart', component: CartComponent },
-            { path: '**', component: NotFoundComponent }
+            { path: 'home', component: HomeComponent, title: 'Home' },
+            { path: 'category', component: CategoryComponent, title: 'Categories' },
+            { path: 'products', component: ProductListComponent, title: 'Products' },
+            { path: 'product-detalis/:id', component: ProductDetalisComponent, title: 'Product Detalis' },
+            { path: 'brands', component: BrandListComponent, title: 'Brands' },
+            { path: 'cart', component: CartComponent, title: 'Cart' },
+            { path: '**', component: NotFoundComponent, title: 'Not Found' }
         ]
     },
 ];

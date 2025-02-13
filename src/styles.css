@@ -11,19 +11,25 @@
     --color-rating: #ffc908;
 }
 
+@layer components {
+    .main-btn {
+        @apply bg-main translate-y-full opacity-0 text-white px-5 py-2 rounded-xl w-full hover:bg-main/70 cursor-pointer transition duration-700 group-hover:translate-y-0 group-hover:opacity-100;
+    }
+}
 
 body {
     font-family: var(--font-family) !important;
 }
 
-.product .btn {
-    transition: transform 1s, opacity 1s;
-    transform: translateY(100%);
-    opacity: 0;
+.text-main {
+    color: #0aad0a;
 }
 
-.product:hover .btn {
-    opacity: 1;
-    transform: translateY(0%);
+.owl-carousel .owl-dots .owl-dot span {
+    background: #999 !important;
+}
 
+.owl-carousel .owl-dots .owl-dot.active span,
+.owl-carousel .owl-dots .owl-dot:hover span {
+    background-color: var(--color-main) !important;
 }

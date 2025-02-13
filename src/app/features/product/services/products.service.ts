@@ -7,13 +7,13 @@ import { environment } from '../../../../environments/environments';
   providedIn: 'root'
 })
 export class ProductsService {
-  
+
   constructor(private httpClient: HttpClient) { }
 
   getProducts(): Observable<any> {
     return this.httpClient.get(environment.baseUrl + 'products');
   }
-  getProdcustsDetails(id: string): Observable<any> {
+  getProdcustsDetails(id: string | null): Observable<any> {
     return this.httpClient.get(environment.baseUrl + `products/${id}`);
   }
 }
