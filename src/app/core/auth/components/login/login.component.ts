@@ -1,11 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { ValidationMessagesComponent } from '../../../../shared/components/validation-messages/validation-messages.component';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [ReactiveFormsModule, ValidationMessagesComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  resMsg: string = "";
+  isLoading = true
 
+  private readonly authService = inject(AuthService)
+  private readonly router = inject(Router)
+
+  authForm = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)]),
+  });
+
+  submitForm() {
+    this.isLoading = false
+    if (this.authForm.valid || !this.isLoading) {
+      console.log(this.authForm.value);
+
+      this.authService.login(this.authForm.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.isLoading = true
+          if (res.message == 'success') {
+            this.router.navigate(['/home'])
+          }
+        },
+        error: ({ error }) => {
+          console.log(error);
+          this.resMsg = error.message
+          this.isLoading = true
+
+        }
+      })
+    }
+  }
 }
