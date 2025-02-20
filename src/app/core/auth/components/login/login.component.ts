@@ -32,6 +32,7 @@ export class LoginComponent {
           console.log(res);
           this.isLoading = true
           if (res.message == 'success') {
+            this.authService.saveToken(res.token)
             this.router.navigate(['/home'])
           }
         },

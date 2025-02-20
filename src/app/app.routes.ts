@@ -12,26 +12,26 @@ import { MainLayoutComponent } from './core/layouts/auth/main-layout/main-layout
 import { ProductListComponent } from './features/product/components/product-list/product-list.component';
 import { BrandListComponent } from './features/brands/components/brand-list/brand-list.component';
 import { ProductDetalisComponent } from './features/product/components/product-detalis/product-detalis.component';
+import { authGuard } from './core/guards/auth.guard';
+import { isLoggedGuard } from './core/guards/is-logged.guard';
 
 export const routes: Routes = [
     {
-        path: '', component: AuthLayoutComponent, children: [
-            // { path: '', redirectTo: 'login', pathMatch: 'full' },
+        path: '', component: AuthLayoutComponent, canActivate: [isLoggedGuard], children: [
             { path: 'login', component: LoginComponent, title: 'Login' },
             { path: 'register', component: RegisterComponent, title: 'Register' },
-            // { path: '**', component: NotFoundComponent }
         ]
     },
     {
-        path: '', component: MainLayoutComponent, children: [
+        path: '', component: MainLayoutComponent, canActivate: [authGuard], children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent, title: 'Home' },
-            { path: 'category', component: CategoryComponent, title: 'Categories' },
+            { path: 'categories', component: CategoryComponent, title: 'Categories' },
             { path: 'products', component: ProductListComponent, title: 'Products' },
             { path: 'product-detalis/:id', component: ProductDetalisComponent, title: 'Product Detalis' },
             { path: 'brands', component: BrandListComponent, title: 'Brands' },
             { path: 'cart', component: CartComponent, title: 'Cart' },
-            { path: '**', component: NotFoundComponent, title: 'Not Found' }
         ]
     },
+    { path: '**', component: NotFoundComponent, title: 'Not Found' }
 ];
