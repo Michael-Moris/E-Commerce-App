@@ -1,7 +1,5 @@
 import { LoginComponent } from './core/auth/components/login/login.component';
 import { Routes } from '@angular/router';
-// import { AuthComponent } from './core/layouts/auth/auth.component';
-// import { UserComponent } from './core/layouts/user/user.component';
 import { RegisterComponent } from './core/auth/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
 import { CategoryComponent } from './features/category/components/category/category.component';
@@ -16,12 +14,14 @@ import { isLoggedGuard } from './core/guards/is-logged.guard';
 import { CartListComponent } from './features/cart/components/cart-list/cart-list.component';
 import { CheckoutComponent } from './features/orders/components/checkout/checkout.component';
 import { OrdersComponent } from './features/orders/components/orders/orders.component';
+import { ForgotPasswordComponent } from './core/auth/components/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
     {
         path: '', component: AuthLayoutComponent, canActivate: [isLoggedGuard], children: [
             { path: 'login', component: LoginComponent, title: 'Login' },
             { path: 'register', component: RegisterComponent, title: 'Register' },
+            { path: 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password' },
         ]
     },
     {

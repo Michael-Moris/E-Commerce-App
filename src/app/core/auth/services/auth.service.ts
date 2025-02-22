@@ -19,6 +19,15 @@ export class AuthService {
   login(data: any): Observable<any> {
     return this.httpClient.post(environment.baseUrl + 'auth/signin', data);
   }
+  setEmailVerify(data: object): Observable<any> {
+    return this.httpClient.post(environment.baseUrl + 'auth/forgotPasswords', data)
+  }
+  setCodeVerify(data: object): Observable<any> {
+    return this.httpClient.post(environment.baseUrl + 'auth/verifyResetCode', data)
+  }
+  setResetPass(data: object): Observable<any> {
+    return this.httpClient.put(environment.baseUrl + 'auth/resetPassword', data)
+  }
 
   decodeToken() {
 
@@ -55,4 +64,5 @@ export class AuthService {
     this.roter.navigate(['/login'])
     localStorage.clear();
   }
+
 }
