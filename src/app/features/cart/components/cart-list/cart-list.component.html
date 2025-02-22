@@ -1,0 +1,50 @@
+@if (isLoading) {
+
+@if (cartDetails.numOfCartItems!=0) {
+<section class="container mx-auto shadow bg-light p-10 m-5 max-w-screen-xl">
+
+    <div class="flex justify-between">
+        <div>
+            <h2 class="text-3xl font-bold my-3">Shop Cart:</h2>
+            <p class="text-main font-bold my-1">Total Cart Price : {{cartDetails.data.totalCartPrice}} EGP</p>
+        </div>
+        <div>
+            <button (click)="clearCart()"
+                class="bg-red-700 hover:bg-red-700/70 cursor-pointer rounded-xl text-white p-3 mt-4">Clear</button>
+        </div>
+    </div>
+
+    @for (item of cartDetails.data.products; track item.product._id) {
+    <app-cart-item [product]="item" (updateProductQty)="updateQty($event.id, $event.newCount)"
+        (removeProduct)="removeProduct($event)" />
+    }
+
+    <div class="flex justify-between">
+        <button routerLink="/products" class="main-btn opacity-100 w-auto mb-13 ">Continue Shopping</button>
+        <button [routerLink]="['/checkout',cartDetails.cartId]"
+            class="main-btn opacity-100 w-auto bg-black mb-13 hover:bg-black/70">Checkout
+            <span class="ms-2">{{cartDetails.data.totalCartPrice}}EGP</span>
+        </button>
+    </div>
+
+</section>
+}@else {
+<div class="container">
+    <div class="row">
+        <div class="col-span-12 text-center">
+            <img src="/images/empty cart.png" class="mx-auto" alt="">
+            <h2 class="font-bold text-2xl  mb-2 ">Your cart is currently empty</h2>
+            <p class="text-gray-700 mb-0">I think the below button is important. Hit this button and you will find a lot
+                of
+                interesting products</p>
+            <button routerLink="/products" class="w-md opacity-100 main-btn">Back to Shopping </button>
+        </div>
+    </div>
+</div>
+}
+
+}@else {
+<h2 class="text-main text-5xl col-span-12 text-center my-6 uppercase font-bold">Loading
+    <i class="fa-solid fa-spinner"></i>
+</h2>
+}

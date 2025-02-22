@@ -5,7 +5,6 @@ import { Routes } from '@angular/router';
 import { RegisterComponent } from './core/auth/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
 import { CategoryComponent } from './features/category/components/category/category.component';
-import { CartComponent } from './features/cart/components/cart/cart.component';
 import { NotFoundComponent } from './core/auth/components/not-found/not-found.component';
 import { AuthLayoutComponent } from './core/layouts/auth/auth-layout/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './core/layouts/auth/main-layout/main-layout/main-layout.component';
@@ -14,6 +13,9 @@ import { BrandListComponent } from './features/brands/components/brand-list/bran
 import { ProductDetalisComponent } from './features/product/components/product-detalis/product-detalis.component';
 import { authGuard } from './core/guards/auth.guard';
 import { isLoggedGuard } from './core/guards/is-logged.guard';
+import { CartListComponent } from './features/cart/components/cart-list/cart-list.component';
+import { CheckoutComponent } from './features/orders/components/checkout/checkout.component';
+import { OrdersComponent } from './features/orders/components/orders/orders.component';
 
 export const routes: Routes = [
     {
@@ -30,8 +32,11 @@ export const routes: Routes = [
             { path: 'products', component: ProductListComponent, title: 'Products' },
             { path: 'product-detalis/:id', component: ProductDetalisComponent, title: 'Product Detalis' },
             { path: 'brands', component: BrandListComponent, title: 'Brands' },
-            { path: 'cart', component: CartComponent, title: 'Cart' },
+            { path: 'cart', component: CartListComponent, title: 'Cart' },
+            { path: 'checkout/:id', component: CheckoutComponent, title: 'checkout' },
+            { path: 'allorders', component: OrdersComponent, title: 'My Orders' },
+            { path: '**', component: NotFoundComponent, title: 'Not Found' }
         ]
     },
-    { path: '**', component: NotFoundComponent, title: 'Not Found' }
+
 ];

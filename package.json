@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng s -o --no-hmr",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -27,6 +27,8 @@
     "flowbite": "^3.1.1",
     "jwt-decode": "^4.0.0",
     "ngx-owl-carousel-o": "^19.0.0",
+    "ngx-spinner": "^19.0.0",
+    "ngx-toastr": "^19.0.0",
     "postcss": "^8.5.1",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.0.3",

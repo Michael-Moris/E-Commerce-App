@@ -1,7 +1,7 @@
+import { CartService } from './../../../cart/services/cart.service';
 import { RouterLink } from '@angular/router';
 import { Product } from './../../models/product';
-import { Component, Input, input } from '@angular/core';
-
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-product-card',
   imports: [RouterLink],
@@ -10,4 +10,9 @@ import { Component, Input, input } from '@angular/core';
 })
 export class ProductCardComponent {
   @Input() product!: Product;
+  @Output() addToCart = new EventEmitter<string>()
+
+  onAddToCart() {
+    this.addToCart.emit(this.product._id)
+  }
 }
