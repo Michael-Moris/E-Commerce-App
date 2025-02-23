@@ -17,6 +17,9 @@ export class MainSliderComponent {
     touchDrag: true,
     pullDrag: false,
     dots: true,
+    autoplay: true,
+    autoplayTimeout:4000,
+    autoplayHoverPause: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {

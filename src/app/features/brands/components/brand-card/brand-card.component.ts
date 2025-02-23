@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Brand } from '../../../product/models/product';
+
 
 @Component({
   selector: 'app-brand-card',
@@ -8,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class BrandCardComponent {
 
+  @Input() brand!: Brand;
 }

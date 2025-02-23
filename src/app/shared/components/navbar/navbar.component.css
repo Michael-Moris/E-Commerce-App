@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+    .cart-count {
+        right: 0px;
+        position: relative;
+    }
+}

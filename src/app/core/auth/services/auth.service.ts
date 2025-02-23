@@ -34,7 +34,7 @@ export class AuthService {
     try {
       if (typeof localStorage !== 'undefined') {
         const decoded = jwtDecode(localStorage.getItem('authToken')!);
-        console.log(decoded);
+        // console.log(decoded);
       }
 
     } catch {
