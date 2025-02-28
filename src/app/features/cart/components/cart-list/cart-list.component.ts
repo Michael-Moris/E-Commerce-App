@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { CartService } from './../../services/cart.service';
 import { Component, inject } from '@angular/core';
 import { Cart } from '../../models/cart.interface';
@@ -18,15 +17,14 @@ export class CartListComponent {
   cartDetails: Cart = {} as Cart
   isLoading: boolean = false
 
-  ngOnInit(): void {
-    this.loadCart()
-  }
-
   loadCart() {
     this.CartService.getloggedUserCart().subscribe({
       next: (res) => {
         this.cartDetails = res
         this.isLoading = true
+        if (this.cartDetails.numOfCartItems === 0) {
+          this.CartService.cartCounter.set(0);
+        }
       }
     })
   }
@@ -53,8 +51,13 @@ export class CartListComponent {
       next: (res) => {
         if (res.message == 'success') {
           this.loadCart()
+
         }
       }
     })
+  }
+
+  ngOnInit(): void {
+    this.loadCart()
   }
 }

@@ -11,17 +11,20 @@ import { RouterLink } from '@angular/router';
   styleUrl: './wish-list-list.component.css'
 })
 export class WishListListComponent implements OnInit {
-  private readonly wishlist = inject(WishListService)
+  private readonly wishList = inject(WishListService)
 
   products: Product[] = []
+  wishlist: string[] = []
   isLoading: boolean = false
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.wishlist.getLoggedUserWishList().subscribe({
+    this.wishList.getLoggedUserWishList().subscribe({
       next: (res: any) => {
         this.products = res.data
         this.isLoading = false;
+        const newWishData = res.data.map((item: any) => item._id)
+        this.wishlist = newWishData
       }
     })
   }

@@ -15,6 +15,8 @@ import { RouterLink } from '@angular/router';
 })
 export class WishListItemComponent {
 
+  wishlist: string[] = []
+
   private readonly cartService = inject(CartService)
   private readonly wishList = inject(WishListService)
   private readonly toastr = inject(ToastrService)
@@ -22,6 +24,7 @@ export class WishListItemComponent {
   @Input() product!: Product;
   @Output() addToCart = new EventEmitter<string>();
   @Output() productRemoved = new EventEmitter<string>();
+
 
   showToastr(msg: string) {
     this.toastr.success(msg, '', {
@@ -46,9 +49,11 @@ export class WishListItemComponent {
         this.showToastr('Product Removed Successfully')
         this.productRemoved.emit(this.product._id)
         this.wishList.wishListCounter.set(res.data.length)
+        this.wishlist = res.data
       }
     });
   }
+
 
   displayWishListData() {
     this.wishList.getLoggedUserWishList();

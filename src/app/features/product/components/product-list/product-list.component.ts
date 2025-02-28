@@ -46,6 +46,5 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     this.getAllProcuts();
-
   }
 }
