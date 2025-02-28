@@ -49,13 +49,24 @@
             </ul>
             <ul
                 class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-200 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+                <li>
+                    <a routerLink="/wishlist" routerLinkActive="text-main"
+                        class=" relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        WishList <i class="fa fa-heart"></i>
+                        <div
+                            class="cart-count absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-4 -end-4 dark:border-gray-900">
+                            {{navBarCounter2()}}</div>
+                    </a>
+                </li>
+
                 <li>
                     <a routerLink="/cart" routerLinkActive="text-main"
                         class=" relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                         Cart <i class="fa fa-cart-shopping"></i>
                         <div
                             class="cart-count absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-4 -end-4 dark:border-gray-900">
-                            20</div>
+                            {{navBarCounter()}}</div>
                     </a>
                 </li>
                 <li>

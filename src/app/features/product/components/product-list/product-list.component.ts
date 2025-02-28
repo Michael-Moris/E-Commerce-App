@@ -18,12 +18,9 @@ export class ProductListComponent {
   private readonly CartService = inject(CartService);
   private readonly toastr = inject(ToastrService)
 
-
-
   showToastr(msg: string) {
     this.toastr.success(msg, '', {
       progressBar: true,
-      // progressAnimation: 'increasing'
       timeOut: 1500
     });
   }
@@ -41,12 +38,11 @@ export class ProductListComponent {
   addProductToCart(id: string) {
     this.CartService.addProductToCart(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.showToastr('Product Added Successfully')
+        this.CartService.cartCounter.set(res.numOfCartItems)
       }
     });
   }
-
 
   ngOnInit(): void {
     this.getAllProcuts();

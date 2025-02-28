@@ -34,8 +34,8 @@ export class CartListComponent {
   removeProduct(id: string) {
     this.CartService.removeCartItem(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.cartDetails = res
+        this.CartService.cartCounter.set(res.numOfCartItems)
       }
     })
   }
@@ -51,7 +51,6 @@ export class CartListComponent {
   clearCart() {
     this.CartService.clearCart().subscribe({
       next: (res) => {
-        console.log(res);
         if (res.message == 'success') {
           this.loadCart()
         }

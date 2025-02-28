@@ -10,7 +10,5 @@
     </div>
 
     <button (click)="onAddToCart()" class="main-btn">Add To Cart</button>
-    <a (click)="onToggleWishlist(product._id)">
-        <i class="main-anchor fa-solid fa-heart fa-lg"></i>
-    </a>
+    <button (click)="onRemoveFromWishList(product._id)" class="main-btn bg-red-500 mt-2">Remove From WishList</button>
 </div>

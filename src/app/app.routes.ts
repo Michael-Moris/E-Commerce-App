@@ -15,6 +15,7 @@ import { CheckoutComponent } from './features/orders/components/checkout/checkou
 import { OrdersComponent } from './features/orders/components/orders/orders.component';
 import { ForgotPasswordComponent } from './core/auth/components/forgot-password/forgot-password.component';
 import { CategoriesListComponent } from './features/category/components/categories-list/categories-list.component';
+import { WishListListComponent } from './features/wishList/components/wish-list-list/wish-list-list.component';
 
 export const routes: Routes = [
     {
@@ -33,6 +34,7 @@ export const routes: Routes = [
             { path: 'product-detalis/:id', component: ProductDetalisComponent, title: 'Product Detalis' },
             { path: 'brands', component: BrandListComponent, title: 'Brands' },
             { path: 'cart', component: CartListComponent, title: 'Cart' },
+            { path: 'wishlist', component: WishListListComponent, title: 'WishList' },
             { path: 'checkout/:id', component: CheckoutComponent, title: 'checkout' },
             { path: 'allorders', component: OrdersComponent, title: 'My Orders' },
             { path: '**', component: NotFoundComponent, title: 'Not Found' }

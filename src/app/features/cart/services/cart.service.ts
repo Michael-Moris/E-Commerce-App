@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { environment } from '../../../../environments/environments';
 import { AuthService } from '../../../core/auth/services/auth.service';
 import { Observable } from 'rxjs';
@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+  cartCounter: WritableSignal<number> = signal<number>(0)
+
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   addProductToCart(productId: string): Observable<any> {
