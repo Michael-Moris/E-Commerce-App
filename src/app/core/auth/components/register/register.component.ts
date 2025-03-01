@@ -47,19 +47,12 @@ export class RegisterComponent {
           console.log(error);
           this.resMsg = error.message
           this.isLoading = true
-
         }
       })
     }
-    // else {
-    //   this.authForm.get('rePassword')?.setValue("");
-    //   this.authForm.markAllAsTouched();
-    // }
   }
 
   ngOnInit(): void {
     this.formInit()
-
   }
-
 }

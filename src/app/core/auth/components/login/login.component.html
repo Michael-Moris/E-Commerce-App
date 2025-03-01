@@ -7,22 +7,21 @@
             @let emailControl=authForm.get("email")?.touched;
             <div class="mb-5">
                 <input [class]='{
-                        "bg-red-50":emailControl,
-                        "border":emailControl,
-                        "border-red-500":emailControl,
-                        "text-red-500":emailControl }' type="email" formControlName="email" class="main-input mb-5"
-                    placeholder="Enter Your Email:" />
+                        "bg-red-50": emailControl && !authForm.get("email")?.valid,
+                        "border": emailControl && !authForm.get("email")?.valid,
+                        "border-red-500": emailControl && !authForm.get("email")?.valid,
+                        "text-red-500": emailControl && !authForm.get("email")?.valid }' type="email"
+                    formControlName="email" class="main-input mb-5" placeholder="Enter Your Email:" />
                 <validation-messages [controls]="authForm.get('email')" />
             </div>
 
             @let PassControl=authForm.get("password")?.touched;
             <div class="mb-5">
                 <input [class]='{
-                    "bg-red-50":PassControl,
-                    "border":PassControl,
-                    "border-red-500":PassControl,
-                    "text-red-500":PassControl,
-
+                    "bg-red-50": PassControl && !authForm.get("password")?.valid,
+                    "border": PassControl && !authForm.get("password")?.valid,
+                    "border-red-500": PassControl && !authForm.get("password")?.valid,
+                    "text-red-500": PassControl && !authForm.get("password")?.valid,
             }' type="password" formControlName="password" class="main-input mb-5" placeholder="Enter Your Password:" />
                 <validation-messages [controls]="authForm.get('password')" />
             </div>

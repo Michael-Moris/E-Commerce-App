@@ -3,19 +3,39 @@
         <h2 class="main-h2 rounded-xl">Register Now:</h2>
 
         <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+            @let nameControl=authForm.get("name")?.touched;
             <div class="mb-5">
-                <input type="text" formControlName="name" class="main-input mb-5" placeholder="Enter Your Name:" />
+                <input [class]='{
+                    "bg-red-50": nameControl && !authForm.get("name")?.valid,
+                    "border": nameControl && !authForm.get("name")?.valid,
+                    "border-red-500": nameControl && !authForm.get("name")?.valid,
+                    "text-red-500": nameControl && !authForm.get("name")?.valid }' type="text" formControlName="name"
+                    class="main-input mb-5" placeholder="Enter Your Name:" />
                 <validation-messages [controls]="authForm.get('name')" />
             </div>
+
+            @let emailControl=authForm.get("email")?.touched;
             <div class="mb-5">
-                <input type="email" formControlName="email" class="main-input mb-5" placeholder="Enter Your E-mail:" />
+                <input [class]='{
+                    "bg-red-50": emailControl && !authForm.get("email")?.valid,
+                    "border": emailControl && !authForm.get("email")?.valid,
+                    "border-red-500": emailControl && !authForm.get("email")?.valid,
+                    "text-red-500": emailControl && !authForm.get("email")?.valid }' type="email"
+                    formControlName="email" class="main-input mb-5" placeholder="Enter Your E-mail:" />
                 <validation-messages [controls]="authForm.get('email')" />
             </div>
+
+            @let passwordControl=authForm.get("password")?.touched;
             <div class="mb-5">
-                <input type="password" formControlName="password" class="main-input mb-5"
-                    placeholder="Enter Your Password:" />
+                <input [class]='{
+                    "bg-red-50": passwordControl && !authForm.get("password")?.valid,
+                    "border": passwordControl && !authForm.get("password")?.valid,
+                    "border-red-500": passwordControl && !authForm.get("password")?.valid,
+                    "text-red-500": passwordControl && !authForm.get("password")?.valid }' type="password"
+                    formControlName="password" class="main-input mb-5" placeholder="Enter Your Password:" />
                 <validation-messages [controls]="authForm.get('password')" />
             </div>
+
             <div class="mb-5">
                 <input type="password" formControlName="rePassword" class="main-input mb-5"
                     placeholder="Enter Your Password Again:" />
@@ -39,7 +59,6 @@
                     </svg>
                     Loading...
                     }
-
                 </button>
             </div>
 
@@ -57,8 +76,6 @@
                 </div>
             </div>
             }
-
         </form>
-
     </div>
 </section>

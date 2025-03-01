@@ -25,11 +25,8 @@ export class LoginComponent {
   submitForm() {
     this.isLoading = false
     if (this.authForm.valid || !this.isLoading) {
-      console.log(this.authForm.value);
-
       this.authService.login(this.authForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = true
           if (res.message == 'success') {
             this.authService.saveToken(res.token)
@@ -37,10 +34,8 @@ export class LoginComponent {
           }
         },
         error: ({ error }) => {
-          console.log(error);
           this.resMsg = error.message
           this.isLoading = true
-
         }
       })
     }

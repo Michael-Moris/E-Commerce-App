@@ -1,6 +1,6 @@
 import { WishListService } from '../../services/wish-list.service';
 import { CartService } from './../../../cart/services/cart.service';
-import { Component, Input, Output, inject, OnInit } from '@angular/core';
+import { Component, Input, Output, inject } from '@angular/core';
 import { Product } from '../../../product/models/product';
 import { EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
