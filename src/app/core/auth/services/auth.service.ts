@@ -34,7 +34,6 @@ export class AuthService {
     try {
       if (typeof localStorage !== 'undefined') {
         const decoded = jwtDecode(localStorage.getItem('authToken')!);
-        // console.log(decoded);
       }
 
     } catch {
@@ -60,9 +59,22 @@ export class AuthService {
     return false
   }
 
+  getUserName(): string | null {
+    try {
+      const token = this.getToken();
+      if (token) {
+        const decoded: any = jwtDecode(token);
+        return decoded.name || null;
+      }
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      this.logOut();
+    }
+    return null;
+  }
+
   logOut() {
     this.roter.navigate(['/login'])
     localStorage.clear();
   }
-
 }

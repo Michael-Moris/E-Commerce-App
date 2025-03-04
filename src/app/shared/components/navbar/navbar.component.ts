@@ -15,25 +15,20 @@ export class NavbarComponent {
 
   navBarCounter = computed(() => this.cartService.cartCounter())
   navBarCounter2 = computed(() => this.wishListService.wishListCounter())
-  // navBarCounter2: number = 0
 
   private readonly wishListService = inject(WishListService)
   private readonly cartService = inject(CartService)
   private readonly auth = inject(AuthService)
+
   private readonly platformId = inject(PLATFORM_ID);
   @Input() layout!: string;
-
+  userName: string | null = null; 
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.cartService.getloggedUserCart().subscribe({
         next: (res) => {
           this.cartService.cartCounter.set(res.numOfCartItems)
-          // this.wishListService.wishListCounter.subscribe({
-          //   next: (value) => {
-          //     this.navBarCounter2 = value
-          //   },
-          // })
         }
       })
 
@@ -41,7 +36,9 @@ export class NavbarComponent {
         next: (res) => {
           this.wishListService.wishListCounter.set(res.data.length)
         }
-      })
+      });
+      
+      this.userName = this.auth.getUserName();
     }
   }
 

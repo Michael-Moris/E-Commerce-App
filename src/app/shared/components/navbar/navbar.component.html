@@ -69,10 +69,30 @@
                             {{navBarCounter()}}</div>
                     </a>
                 </li>
+
                 <li>
-                    <a (click)="logOut()"
-                        class=" cursor-pointer block py-2 px-3 md:p-0 rounded-sm md:hover:text-main hover:bg-gray-300  md:hover:bg-transparent dark:text-white md:dark:hover:text-main  dark:hover:bg-gray-700  md:dark:hover:bg-transparent "
-                        aria-current="page">LogOut</a>
+                    <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
+                        class="text-gray-900 cursor-pointer py-2 px-3 md:p-0 font-medium rounded-sm 
+                                md:hover:text-main dark:text-white md:dark:hover:text-main
+                                dark:hover:bg-gray-700 md:dark:hover:bg-transparent
+                                md:hover:bg-transparent hover:bg-gray-300 hover:text-main" type="button">
+                        Hello! {{userName}}
+                        <svg class="w-2.5 h-2.5 ms-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <div id="dropdownHover"
+                        class="z-10 hidden text-center bg-light cursor-pointer divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-900">
+                        <ul class="py-2 text-sm text-gray-900 dark:text-white" aria-labelledby="dropdownHoverButton">
+                            <li class="py-2 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-main">
+                                <a routerLink="/allorders" routerLinkActive="text-main" class="">My Orders</a>
+                            </li>
+                            <li class="py-2 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-main">
+                                <a (click)="logOut()">LogOut</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
             }
