@@ -18,4 +18,8 @@ export class OrderService {
         shippingAddress
       },)
   }
+
+  getUserOrders(id: string): Observable<any> {
+    return this.http.get(`${environment.baseUrl}orders/user/${id}`)
+  }
 }

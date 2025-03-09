@@ -11,6 +11,8 @@ import { jwtDecode } from "jwt-decode";
 })
 export class AuthService {
 
+  userData: any = null;
+
   constructor(private httpClient: HttpClient, private roter: Router) { }
 
   register(data: any): Observable<any> {
@@ -30,16 +32,13 @@ export class AuthService {
   }
 
   decodeToken() {
-
     try {
       if (typeof localStorage !== 'undefined') {
         const decoded = jwtDecode(localStorage.getItem('authToken')!);
       }
-
     } catch {
       this.logOut()
     }
-
   }
 
   saveToken(token: string): void {
@@ -71,6 +70,12 @@ export class AuthService {
       this.logOut();
     }
     return null;
+  }
+
+  saveUserData(): void {
+    if (localStorage.getItem('authToken') !== null) {
+      this.userData = jwtDecode(localStorage.getItem('authToken')!);
+    }
   }
 
   logOut() {

@@ -29,7 +29,8 @@ export class LoginComponent {
         next: (res) => {
           this.isLoading = true
           if (res.message == 'success') {
-            this.authService.saveToken(res.token)
+            this.authService.saveToken(res.token);
+            this.authService.saveUserData();
             this.router.navigate(['/home'])
           }
         },

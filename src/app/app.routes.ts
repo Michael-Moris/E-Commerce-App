@@ -20,6 +20,7 @@ import { WishListListComponent } from './features/wishList/components/wish-list-
 export const routes: Routes = [
     {
         path: '', component: AuthLayoutComponent, canActivate: [isLoggedGuard], children: [
+            { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', component: LoginComponent, title: 'Login' },
             { path: 'register', component: RegisterComponent, title: 'Register' },
             { path: 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password' },

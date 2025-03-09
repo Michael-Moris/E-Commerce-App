@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ValidationMessagesComponent } from '../../../../shared/components/validation-messages/validation-messages.component';
 import { OrderService } from '../../services/order.service';
 
@@ -32,8 +32,6 @@ export class CheckoutComponent {
     });
   }
 
-
-
   getCartId() {
     this.activatedRoute.paramMap.subscribe({
       next: (data) => {
@@ -42,15 +40,11 @@ export class CheckoutComponent {
     })
   }
 
-
   submitForm() {
     this.isLoading = false
     if (this.checkoutForm.valid || !this.isLoading) {
-
-      console.log(this.cartId, this.checkoutForm.value);
       this.orderService.createCheckout(this.cartId, this.checkoutForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = true
           open(res.session.url, '_self')
         }

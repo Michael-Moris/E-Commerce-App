@@ -1,1 +1,119 @@
-<p>orders works!</p>
+<section class=" relative">
+    <div>
+        <h2 class="main-h2">
+            My Orders
+        </h2>
+            <p class="text-center text-gray-500 text-lg capitalize pb-2">
+                Thank you for your purchases! You can view all your order summaries below
+            </p>
+    </div>
+
+    @for (order of allOrdersList| paginate:{itemsPerPage:5, currentPage: p}; track $index) {
+    <div class="w-full max-w-7xl px-4 py-3 md:px-5 lg-6 mx-auto">
+        <div class="border-2 border-main rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-gray-200">
+                <div class="data">
+                    <p class="font-semibold text-base leading-7 text-black">
+                        Order Id: <span class="text-main font-medium">{{order.id}}</span>
+                    </p>
+                    <p class="font-semibold text-base leading-7 text-black mt-4">
+                        Order Payment :
+                        <span class="text-gray-400 font-medium"> {{order.createdAt | date}}</span>
+                    </p>
+                </div>
+                <button
+                    class="rounded-2xl py-3 px-7 font-semibold text-sm leading-7 text-white bg-main max-lg:mt-5 shadow-sm shadow-transparent transition-all duration-500 hover:bg-main hover:shadow-green-950 cursor-pointer">
+                    Track Your Order
+                </button>
+            </div>
+
+            @for (cartItem of order.cartItems ; track $index) {
+            <div class="w-full px-3 min-[400px]:px-6">
+                <div class="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
+                    <div class="max-lg:w-full">
+                        <img [src]="cartItem.product.imageCover" [alt]="cartItem.product.title"
+                            class="aspect-square w-full lg:max-w-[140px] rounded-xl object-cover" />
+                    </div>
+                    <div class="flex flex-row items-center w-full">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 w-full">
+                            <div class="flex items-center">
+                                <div class="">
+                                    <h2 class="font-semibold text-xl leading-8 text-black mb-3">
+                                        {{cartItem.product.title}}
+                                    </h2>
+                                    <p class="font-normal text-lg leading-8 text-gray-500 mb-3">
+                                        By: <span class="uppercase">{{cartItem.product.brand.name}}</span>
+                                    </p>
+                                    <div class="flex items-center">
+                                        <p class="font-medium text-base leading-7 text-black">
+                                            Qty: <span class="text-gray-500">{{cartItem.count}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-5">
+                                <div class="col-span-5 lg:col-span-1 flex items-center max-lg:mt-3">
+                                    <div class="flex gap-3 lg:block">
+                                        <p class="font-medium text-sm leading-7 text-black">
+                                            Price
+                                        </p>
+                                        <p class="lg:mt-4 font-medium text-sm leading-7 text-main">
+                                            {{cartItem.price}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-5 lg:col-span-2 flex items-center max-lg:mt-3">
+                                    <div class="flex gap-3 lg:block">
+                                        <p class="font-medium text-sm leading-7 text-black">
+                                            isDelivered
+                                        </p>
+                                        <p class="font-medium text-sm leading-6 whitespace-nowrap py-0.5 px-3 rounded-full lg:mt-3 text-center"
+                                            [class]="order.isDelivered ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-600'">
+                                            {{order.isDelivered}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-5 lg:col-span-2 flex items-center max-lg:mt-3">
+                                    <div class="flex gap-3 lg:block">
+                                        <p class="font-medium text-sm whitespace-nowrap leading-6 text-black">
+                                            Expected Delivery Time
+                                        </p>
+                                        <p
+                                            class="font-medium text-base whitespace-nowrap leading-7 lg:mt-3 text-main/70 text-center">
+                                            23rd March 2025
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            <div class="w-full border-t border-gray-200 px-6 flex flex-col lg:flex-row items-center justify-between">
+                <div class="flex flex-col sm:flex-row items-center max-lg:border-b border-gray-200">
+                    <button
+                        class="flex outline-0 py-6 sm:pr-6 sm:border-r border-gray-200 whitespace-nowrap gap-2 items-center justify-center font-semibold group text-lg text-black bg-white transition-all duration-500 hover:text-main cursor-pointer">
+                        <svg class="stroke-black transition-all duration-500 group-hover:stroke-main"
+                            xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M5.5 5.5L16.5 16.5M16.5 5.5L5.5 16.5" stroke="" stroke-width="1.6"
+                                stroke-linecap="round" />
+                        </svg>
+                        Cancel Order
+                    </button>
+                    <p class="font-medium text-lg text-gray-900 pl-6 py-3 max-lg:text-center capitalize">
+                        Paid using {{order.paymentMethodType}}
+                        <span class="text-gray-500 normal-case">ending with 2424</span>
+                    </p>
+                </div>
+                <p class="font-semibold text-lg text-black py-6">
+                    Total Price: <span class="text-main"> {{order.totalOrderPrice}} EGP</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    }
+    <pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event"
+        class="pagination-spreads"></pagination-controls>
+</section>

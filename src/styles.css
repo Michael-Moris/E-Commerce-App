@@ -63,6 +63,35 @@ body {
 }
 
 
+/* ----- Paginator Styles ----- */
+.ngx-pagination {
+    text-align: center;
+}
+
+.ngx-pagination .current,
+.btn-info {
+    background: var(--color-main) !important;
+    border-radius: 8px !important;
+}
+
+.ngx-pagination a:hover,
+.ngx-pagination button:hover {
+    background: rgba(10, 174, 10, 0.5) !important;
+    border-radius: 8px !important;
+    color: white !important;
+}
+
+.pagination-spreads ul>li:not(.active)>a {
+    border: 1px solid var(--color-main) !important;
+    border-radius: 8px !important;
+
+}
+
+/* .pagination-spreads ul>li.disabled {
+    border: 1px solid var(--color-main) !important;
+    border-radius: 8px !important;
+} */
+
 
 /* ----- Toaster Styles ----- */
 
