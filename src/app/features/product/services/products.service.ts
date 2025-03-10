@@ -10,8 +10,8 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProducts(): Observable<any> {
-    return this.httpClient.get(environment.baseUrl + 'products');
+  getProducts(pageNum: number = 1): Observable<any> {
+    return this.httpClient.get(environment.baseUrl + `products?page=${pageNum}`);
   }
   getProdcustsDetails(id: string | null): Observable<any> {
     return this.httpClient.get(environment.baseUrl + `products/${id}`);

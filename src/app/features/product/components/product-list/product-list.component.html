@@ -2,13 +2,31 @@
     <h2 class=" main-h2">Popular Products</h2>
     <div class="container mx-auto">
         <div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 max-w-screen-xl mx-auto">
-            @for (product of allProducts; track product._id) {
+            @for (product of allProducts| paginate: { id: 'productsPaginator',
+            itemsPerPage: pageSize,
+            currentPage: currentPage,
+            totalItems: total }; track product._id) {
             <app-product-card [product]="product" (addToCart)="addProductToCart($event)" />
             }@empty {
             <h2 class="text-main text-5xl col-span-12 text-center my-6 uppercase font-bold">Loading
                 <i class="fa-solid fa-spinner"></i>
             </h2>
             }
+        </div>
+        <div class="mt-7 pagination-spreads">
+            <pagination-controls  id="productsPaginator"
+            (pageChange)="pageChanged($event)"
+            (pageBoundsCorrection)="pageChanged($event)"
+            [maxSize]="9"
+            [directionLinks]="true"
+            [autoHide]="true"
+            [responsive]="true"
+            previousLabel=""
+            nextLabel=""
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page">
+            </pagination-controls>
         </div>
     </div>
 </section>
