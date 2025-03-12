@@ -22,7 +22,7 @@ export class OrderService {
       city: string,
     }
   ): Observable<any> {
-    const returnUrl = encodeURIComponent('http://localhost:4200/#');
+    const returnUrl = encodeURIComponent(`${window.location.origin}/#/`);
     return this.httpClient.post(
       `${environment.baseUrl}orders/checkout-session/${cartId}?url=${returnUrl}`,
       {
