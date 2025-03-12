@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environments';
 import { AuthService } from '../../../core/auth/services/auth.service';
 import { Observable } from 'rxjs';
@@ -9,17 +9,28 @@ import { Observable } from 'rxjs';
 })
 export class OrderService {
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  private readonly authService = inject(AuthService)
+  private readonly httpClient = inject(HttpClient)
 
-  createCheckout(cartId: string, shippingAddress: { details: string, phone: string, city: string }): Observable<any> {
-    const returnUrl = "?url=http://localhost:4200"
-    return this.http.post(environment.baseUrl + 'orders/checkout-session/' + cartId + returnUrl,
+  constructor() { }
+
+  createCheckout(
+    cartId: string,
+    shippingAddress: {
+      details: string,
+      phone: string,
+      city: string,
+    }
+  ): Observable<any> {
+    const returnUrl = encodeURIComponent('http://localhost:4200/#');
+    return this.httpClient.post(
+      `${environment.baseUrl}orders/checkout-session/${cartId}?url=${returnUrl}`,
       {
         shippingAddress
       },)
   }
 
   getUserOrders(id: string): Observable<any> {
-    return this.http.get(`${environment.baseUrl}orders/user/${id}`)
+    return this.httpClient.get(`${environment.baseUrl}orders/user/${id}`)
   }
 }

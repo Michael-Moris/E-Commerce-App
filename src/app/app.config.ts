@@ -12,7 +12,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
-  provideRouter(routes),
+  provideRouter(routes, withHashLocation()),
   provideClientHydration(withEventReplay()),
   provideHttpClient(withFetch(), withInterceptors([authInterceptor, loadingInterceptor])),
   importProvidersFrom(BrowserAnimationsModule, NgxSpinnerModule, BrowserModule),
