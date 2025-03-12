@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ProductListComponent } from "../../../product/components/product-list/product-list.component";
 import { MainSliderComponent } from "../main-slider/main-slider.component";
 import { CategorySliderComponent } from "../category-slider/category-slider.component";
+import { BrandsSliderComponent } from "../brands-slider/brands-slider.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ProductListComponent, MainSliderComponent, CategorySliderComponent],
+  imports: [ProductListComponent, MainSliderComponent, CategorySliderComponent, BrandsSliderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

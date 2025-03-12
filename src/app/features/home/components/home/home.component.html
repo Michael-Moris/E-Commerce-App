@@ -1,3 +1,26 @@
+<img class="w-full block" src="/images/CIB.avif" alt="CIB-Bank-Banner">
 <app-main-slider />
 <app-category-slider />
-<app-product-list></app-product-list>
+<app-product-list 
+        [isHomePage]="true" 
+        [sliceStart]="23" 
+        [sliceEnd]="33" 
+        homeTitle="Men's Fashion Picks">
+    </app-product-list>
+
+    <app-product-list 
+        [isHomePage]="true" 
+        [sliceStart]="0" 
+        [sliceEnd]="10" 
+        homeTitle="Women's Fashion Picks">
+    </app-product-list>
+
+    <app-product-list 
+        [isHomePage]="true" 
+        [sliceStart]="33" 
+        [sliceEnd]="38" 
+        homeTitle="Electronics Picks">
+    </app-product-list>
+
+    <img src="/images/brands Banner.avif" alt="">
+<app-brands-slider />

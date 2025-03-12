@@ -1,7 +1,7 @@
 import { CartService } from './../../../cart/services/cart.service';
 import { Product } from '../../models/product';
 import { ProductsService } from './../../services/products.service';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { ToastrService } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -17,6 +17,10 @@ export class ProductListComponent {
   pageSize: number = 0;
   currentPage: number = 1;
   total: number = 0;
+  @Input() isHomePage: boolean = false;
+  @Input() sliceStart: number = 0;
+  @Input() sliceEnd: number = 0;
+  @Input() homeTitle: string = '';
 
   private readonly ProductsService = inject(ProductsService);
   private readonly CartService = inject(CartService);

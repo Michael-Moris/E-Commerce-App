@@ -33,15 +33,20 @@
     }
 }
 
-/* :root {
+:root {
     ::-webkit-scrollbar {
         width: 12px;
     }
 
     ::-webkit-scrollbar-thumb {
         background-color: var(--color-main);
+        border-radius: 20px;
     }
-} */
+
+    ::-webkit-scrollbar-track {
+        background-color: #364153;
+    }
+}
 
 body {
     font-family: var(--font-family) !important;
@@ -53,6 +58,7 @@ body {
     color: #0aad0a;
 }
 
+/* ----- Owl-Carusel Styles ----- */
 .owl-carousel .owl-dots .owl-dot span {
     background: #999 !important;
 }
@@ -62,6 +68,32 @@ body {
     background-color: var(--color-main) !important;
 }
 
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+    color: #FFF;
+    height: 90px;
+    width: 30px;
+    font-size: 24px;
+    font-weight: bolder;
+    background: rgba(54, 54, 54, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background-color: rgba(10, 173, 10, 0.2);
+}
 
 /* ----- Paginator Styles ----- */
 .ngx-pagination {

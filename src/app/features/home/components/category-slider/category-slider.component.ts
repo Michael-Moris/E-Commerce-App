@@ -33,12 +33,13 @@ export class CategorySliderComponent {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
-    dots: true,
+    dots: false,
     autoplay: true,
     autoplayTimeout: 2500,
     autoplayHoverPause: true,
     navSpeed: 700,
-    navText: ['', ''],
+    navText: ['<', '>'],
+    nav: true,
     responsive: {
       0: {
         items: 1
@@ -56,6 +57,5 @@ export class CategorySliderComponent {
         items: 6
       }
     },
-    nav: false
   }
 }
