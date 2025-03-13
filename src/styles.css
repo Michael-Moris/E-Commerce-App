@@ -83,7 +83,7 @@ body {
     width: 30px;
     font-size: 24px;
     font-weight: bolder;
-    background: rgba(54, 54, 54, 0.5);
+    background: transparent;
     cursor: pointer;
     border-radius: 5px;
     display: flex;
@@ -91,8 +91,22 @@ body {
     justify-content: center;
 }
 
+.owl-prev {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-next {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .owl-theme .owl-nav [class*=owl-]:hover {
-    background-color: rgba(10, 173, 10, 0.2);
+    background-color: transparent;
 }
 
 /* ----- Paginator Styles ----- */

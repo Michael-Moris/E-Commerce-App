@@ -21,7 +21,7 @@ export class MainSliderComponent {
     autoplayTimeout: 4000,
     autoplayHoverPause: true,
     navSpeed: 700,
-    navText: ['<', '>'],
+    navText: ['<i class="fa-regular fa-circle-left fa-xl text-white/50 hover:text-main/50 transition-all duration-300"></i>', '<i class="fa-regular fa-circle-right fa-xl text-white/50 hover:text-main/50 transition-all duration-300"></i>'],
     nav: true,
     responsive: {
       0: {

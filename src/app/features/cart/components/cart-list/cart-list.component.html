@@ -21,8 +21,8 @@
     <div class="flex justify-between">
         <button routerLink="/products" class="main-btn opacity-100 w-auto mb-13 ">Continue Shopping</button>
         <button [routerLink]="['/checkout',cartDetails.cartId]"
-            class="main-btn opacity-100 w-auto bg-black mb-13 hover:bg-black/70">Checkout
-            <span class="ms-2">{{cartDetails.data.totalCartPrice}}EGP</span>
+            class="main-btn opacity-100 w-auto bg-black mb-13 hover:bg-black/70">Checkout :
+            <span class="ms-2">{{cartDetails.data.totalCartPrice}} EGP</span>
         </button>
     </div>
 
