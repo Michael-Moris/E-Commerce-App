@@ -31,7 +31,7 @@ export const routes: Routes = [
             { path: 'wishlist', loadComponent: () => import('./features/wishList/components/wish-list-list/wish-list-list.component').then((c) => c.WishListListComponent), title: 'WishList' },
             { path: 'checkout/:id', loadComponent: () => import('./features/orders/components/checkout/checkout.component').then((c) => c.CheckoutComponent), title: 'Checkout' },
             { path: 'allorders', loadComponent: () => import('./features/orders/components/orders/orders.component').then((c) => c.OrdersComponent), title: 'My Orders' },
-            { path: '**', loadComponent: () => import('./core/auth/components/not-found/not-found.component').then((c) => c.NotFoundComponent), title: 'Not Found' }
         ]
-    }
+    },
+    { path: '**', loadComponent: () => import('./core/auth/components/not-found/not-found.component').then((c) => c.NotFoundComponent), title: 'Not Found' }
 ];
