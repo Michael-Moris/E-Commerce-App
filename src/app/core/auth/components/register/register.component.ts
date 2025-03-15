@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ValidationMessagesComponent } from "../../../../shared/components/validation-messages/validation-messages.component";
 import { AuthService } from './../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { passwordMatchValidator } from '../../../../shared/helpers/password-match';
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, ValidationMessagesComponent],
+  imports: [ReactiveFormsModule, ValidationMessagesComponent,RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

@@ -4,34 +4,55 @@
 
         <form [formGroup]="authForm" (ngSubmit)="submitForm()">
 
-            @let emailControl=authForm.get("email")?.touched;
+            @let emailControl = authForm.get('email')?.touched;
             <div class="mb-5">
-                <input [class]='{
-                        "bg-red-50": emailControl && !authForm.get("email")?.valid,
-                        "border": emailControl && !authForm.get("email")?.valid,
-                        "border-red-500": emailControl && !authForm.get("email")?.valid,
-                        "text-red-500": emailControl && !authForm.get("email")?.valid }' type="email"
-                    formControlName="email" class="main-input mb-5" placeholder="Enter Your Email:" />
+                <input [class]="{
+                'bg-red-50': emailControl && !authForm.get('email')?.valid,
+                'border': emailControl && !authForm.get('email')?.valid,
+                'border-red-500': emailControl && !authForm.get('email')?.valid,
+                'text-red-500': emailControl && !authForm.get('email')?.valid
+            }" type="email" formControlName="email" class="main-input mb-5" placeholder="Enter your email" />
                 <validation-messages [controls]="authForm.get('email')" />
             </div>
 
-            @let PassControl=authForm.get("password")?.touched;
-            <div class="mb-5">
-                <input [class]='{
-                    "bg-red-50": PassControl && !authForm.get("password")?.valid,
-                    "border": PassControl && !authForm.get("password")?.valid,
-                    "border-red-500": PassControl && !authForm.get("password")?.valid,
-                    "text-red-500": PassControl && !authForm.get("password")?.valid,
-            }' type="password" formControlName="password" class="main-input mb-5" placeholder="Enter Your Password:" />
+            @let passControl = authForm.get('password')?.touched;
+            <div class="mb-5 relative">
+                <input [type]="passwordFieldType" [class]="{
+                'bg-red-50': passControl && !authForm.get('password')?.valid,
+                'border': passControl && !authForm.get('password')?.valid,
+                'border-red-500': passControl && !authForm.get('password')?.valid,
+                'text-red-500': passControl && !authForm.get('password')?.valid
+            }" formControlName="password" class="main-input mb-5 pr-10" placeholder="Enter your password" />
+
+                <button type="button" (click)="togglePasswordVisibility()"
+                    class="absolute right-3 top-3 text-gray-400 hover:text-main cursor-pointer">
+                    @if (!isPasswordVisible) {
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943
+                            9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    } @else {
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7
+                            a9.978 9.978 0 012.383-4.241M6.8 6.8A9.958 9.958 0 0112 5c4.477 0
+                            8.268 2.943 9.542 7a9.956 9.956 0 01-4.091 5.297M15 12a3 3 0 00-3-3
+                            m0 0a3 3 0 013 3m-3-3L3 3" />
+                    </svg>
+                    }
+                </button>
+
                 <validation-messages [controls]="authForm.get('password')" />
             </div>
 
             <div class="mb-5">
-                <button [disabled]="authForm.invalid ||! isLoading" [class.bg-gray-400]="authForm.invalid ||! isLoading"
+                <button [disabled]="authForm.invalid || !isLoading" [class.bg-gray-400]="authForm.invalid || !isLoading"
                     type="submit" class="main-btn opacity-100 translate-y-0">
                     @if (isLoading) {
                     Login
-                    }@else {
+                    } @else {
                     <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-1 text-white animate-spin"
                         viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -43,29 +64,34 @@
                     </svg>
                     Loading...
                     }
-
                 </button>
             </div>
+
             <div class="flex justify-center align-middle cursor-pointer text-main">
-                <a routerLink="/forgotpassword">ForgotPassword?</a>
+                <a routerLink="/forgotpassword">Forgot Password?</a>
             </div>
 
             @if (resMsg) {
-            <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                role="alert">
-                <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4
+                        a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3
+                        H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                 </svg>
-                <span class="sr-only">Info</span>
-                <div>
-                    <span class="font-medium">{{resMsg}}!</span>
-                </div>
+                <span class="font-medium">{{ resMsg }}</span>
             </div>
             }
-
         </form>
 
+        <div class="flex items-center my-6">
+            <hr class="flex-grow border-gray-300" />
+            <span class="mx-4 text-gray-400 text-sm">or</span>
+            <hr class="flex-grow border-gray-300" />
+        </div>
+        <div class="text-center text-sm">
+            <span class="text-gray-600">New to FreshCart?</span>
+            <a routerLink="/register" class="text-main font-semibold hover:underline ml-1">Create account</a>
+        </div>
     </div>
 </section>
