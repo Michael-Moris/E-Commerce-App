@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { environment } from '../../../../environments/environments';
+import { environment } from '../../../../environments/environment';
 import { AuthService } from '../../../core/auth/services/auth.service';
 import { Observable } from 'rxjs';
 
