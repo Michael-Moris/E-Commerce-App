@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <button (click)="onAddToCart()" class="main-btn">Add To Cart</button>
+    <button (click)="onAddToCart()" class="main-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
 
     @if (!wishlist.includes(product.id)) {
     <a (click)="onToggleWishlist(product._id)">
