@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng s -o --no-hmr",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Fresh-Cart": "node dist/fresh-cart/server/server.mjs"
