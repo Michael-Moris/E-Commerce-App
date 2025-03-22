@@ -1,12 +1,13 @@
 <nav class="bg-light border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-5">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
         <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="images/DarkModeLogo.svg" class="h-8 hidden dark:block" alt=" Cart Logo" />
-            <img src="/images/freshcart-logo.svg" class="h-8 block dark:hidden" alt=" Cart Logo" />
+            <img src="images/DarkModeLogo.svg" class="h-8 hidden dark:block" alt="Cart Logo" />
+            <img src="/images/freshcart-logo.svg" class="h-8 block dark:hidden" alt="Cart Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
+
         <button data-collapse-toggle="navbar-default" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm cursor-pointer text-gray-500 rounded-lg md:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-3  00 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm cursor-pointer text-gray-500 rounded-lg md:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -14,69 +15,79 @@
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
         </button>
+
         <div class="hidden w-full md:flex grow md:w-auto justify-between mx-10" id="navbar-default">
             @if (layout=='auth') {
             <ul
-                class=" ms-auto font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-300 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="ms-auto font-medium flex flex-col p-2 mt-4 border border-gray-300 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                     <a routerLink="/login" routerLinkActive="text-main"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                        aria-current="page">Login</a>
+                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        Login
+                    </a>
                 </li>
                 <li>
                     <a routerLink="/register" routerLinkActive="text-main"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</a>
+                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        Register
+                    </a>
                 </li>
             </ul>
-            }@else {
+            } @else {
             <ul
-                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-200 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="font-medium flex flex-col p-2 mt-4 border border-gray-200 rounded-lg md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                     <a routerLink="/home" routerLinkActive="text-main"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        Home
+                    </a>
                 </li>
                 <li>
                     <a routerLink="/products" routerLinkActive="text-main"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
+                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        Products
+                    </a>
                 </li>
                 <li>
                     <a routerLink="/categories" routerLinkActive="text-main"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Categories</a>
+                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        Categories
+                    </a>
                 </li>
                 <li>
                     <a routerLink="/brands" routerLinkActive="text-main"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Brands</a>
+                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        Brands
+                    </a>
                 </li>
             </ul>
-            <ul
-                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-200 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
+            <ul
+                class="font-medium flex flex-col p-2 mt-4 border border-gray-200 rounded-lg md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                     <a routerLink="/wishlist" routerLinkActive="text-main"
-                        class=" relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        class="relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                         WishList <i class="fa fa-heart"></i>
                         <div
-                            class="cart-count absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-4 -end-4 dark:border-gray-900">
-                            {{navBarCounter2()}}</div>
+                            class="cart-count absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-2 -end-2 customT customE dark:border-gray-900">
+                            {{navBarCounter2()}}
+                        </div>
                     </a>
                 </li>
-
                 <li>
                     <a routerLink="/cart" routerLinkActive="text-main"
-                        class=" relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        class="relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-300 md:hover:bg-transparent md:border-0 md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                         Cart <i class="fa fa-cart-shopping"></i>
                         <div
-                            class="cart-count absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-4 -end-4 dark:border-gray-900">
-                            {{navBarCounter()}}</div>
+                            class="cart-count absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-2 -end-2 customT customEcustomT customE dark:border-gray-900">
+                            {{navBarCounter()}}
+                        </div>
                     </a>
                 </li>
-
                 <li>
                     <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
-                        class="text-gray-900 cursor-pointer py-2 px-3 md:p-0 font-medium rounded-sm 
-                                md:hover:text-main dark:text-white md:dark:hover:text-main
-                                dark:hover:bg-gray-700 md:dark:hover:bg-transparent
-                                md:hover:bg-transparent hover:bg-gray-300 hover:text-main" type="button">
+                        class="text-gray-900 cursor-pointer py-2 px-3 font-medium rounded-sm md:hover:text-main dark:text-white md:dark:hover:text-main dark:hover:bg-gray-700 md:dark:hover:bg-transparent md:hover:bg-transparent hover:bg-gray-300 hover:text-main"
+                        type="button">
                         Hello! {{userName}}
                         <svg class="w-2.5 h-2.5 ms-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -87,7 +98,7 @@
                         class="z-10 hidden text-center bg-light cursor-pointer divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-900">
                         <ul class="py-2 text-sm text-gray-900 dark:text-white" aria-labelledby="dropdownHoverButton">
                             <li class="py-2 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-main">
-                                <a routerLink="/allorders" routerLinkActive="text-main" class="">My Orders</a>
+                                <a routerLink="/allorders" routerLinkActive="text-main">My Orders</a>
                             </li>
                             <li class="py-2 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-main">
                                 <a (click)="logOut()">LogOut</a>

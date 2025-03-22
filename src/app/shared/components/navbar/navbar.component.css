@@ -3,6 +3,14 @@
         right: 0px;
         position: relative;
     }
+
+    .customT {
+        top: calc(var(--spacing) * -4)
+    }
+
+    .customE {
+        inset-inline-end: calc(var(--spacing) * -1);
+    }
 }
 
 #dropdownHoverButton {
