@@ -9,9 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { DatePipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
+    DatePipe,
   provideRouter(routes, withHashLocation()),
   provideClientHydration(withEventReplay()),
   provideHttpClient(withFetch(), withInterceptors([authInterceptor, loadingInterceptor])),
