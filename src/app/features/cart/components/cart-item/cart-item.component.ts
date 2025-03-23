@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/cart.interface';
+import { DecimalPipe } from '@angular/common';
 @Component({
   selector: 'app-cart-item',
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.css'
 })

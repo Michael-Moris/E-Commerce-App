@@ -4,10 +4,11 @@ import { Cart } from '../../models/cart.interface';
 import { CartItemComponent } from "../cart-item/cart-item.component";
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart-list',
-  imports: [CartItemComponent, RouterLink],
+  imports: [CartItemComponent, RouterLink, DecimalPipe],
   templateUrl: './cart-list.component.html',
   styleUrl: './cart-list.component.css'
 })

@@ -5,11 +5,12 @@ import { Product } from '../../../product/models/product';
 import { EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RouterLink } from '@angular/router';
+import { DecimalPipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-wishlist-item',
-  imports: [RouterLink],
+  imports: [RouterLink, DecimalPipe],
   templateUrl: './wish-list-item.component.html',
   styleUrl: './wish-list-item.component.css'
 })

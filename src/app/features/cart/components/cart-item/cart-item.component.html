@@ -6,7 +6,9 @@
     <div class="col-span-11 flex justify-between">
         <div>
             <h4 class="font-bold">{{product.product.title}}</h4>
-            <span class="text-main font-bold block my-3">Price : {{product.price}}</span>
+            <span class="text-main font-bold block my-3">
+                Price : {{ product.price * product.count | number:'1.0-2' }}
+            </span>
             <button (click)="onRemove()" class="cursor-pointer"> <i class="fa fa-trash-can text-main"></i>
                 Remove</button>
         </div>

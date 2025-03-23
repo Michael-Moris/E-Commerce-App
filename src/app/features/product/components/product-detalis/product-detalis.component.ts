@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { ProductsService } from './../../services/products.service';
 import { Product } from '../../models/product';
 import { ToastrService } from 'ngx-toastr';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-detalis',
   standalone: true,
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './product-detalis.component.html',
   styleUrls: ['./product-detalis.component.css']
 })
