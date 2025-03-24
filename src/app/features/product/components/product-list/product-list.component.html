@@ -5,6 +5,19 @@
         } @else {
         Explore Our Products }
     </h2>
+    @if(!isHomePage){
+    <div class="relative w-1/2 mx-auto mb-5">
+        <span class="absolute inset-y-0 left-3 flex items-center text-gray-500">
+            <i class="fas fa-search text-main"></i>
+        </span>
+        <input [(ngModel)]="searchTerm" type="text" 
+        class="w-full p-2.5 pl-10 rounded-2xl text-sm font-semibold
+            bg-gray-50 border-2 border-gray-400 text-gray-700 
+            focus:outline-none focus:ring-main focus:border-main"
+            placeholder="What are you looking for today?..." />
+    </div>
+
+    }
     <div class="container mx-auto">
         <div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 max-w-screen-xl mx-auto">
 
@@ -13,7 +26,9 @@
             <app-product-card [product]="product" (addToCart)="addProductToCart($event)" />
             }
             } @else {
-            @for (product of allProducts | paginate: { id: 'productsPaginator', itemsPerPage: pageSize, currentPage:
+            @for (product of allProducts |search:searchTerm | paginate: { id: 'productsPaginator',
+            itemsPerPage: pageSize,
+            currentPage:
             currentPage, totalItems: total }; track product._id) {
             <app-product-card [product]="product" (addToCart)="addProductToCart($event)" />
             }

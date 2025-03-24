@@ -6,10 +6,12 @@ import { ProductCardComponent } from "../product-card/product-card.component";
 import { ToastrService } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Subscription } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../../../../shared/pipes/search.pipe';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCardComponent, NgxPaginationModule],
+  imports: [ProductCardComponent, NgxPaginationModule, FormsModule, SearchPipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -24,6 +26,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   pageSize: number = 0;
   currentPage: number = 1;
   total: number = 0;
+  searchTerm: string = ''
 
   private readonly ProductsService = inject(ProductsService);
   private readonly CartService = inject(CartService);
