@@ -32,6 +32,34 @@ FreshCart is a fully-featured e-commerce platform that replicates real-world onl
 
 ---
 
+## 🧠 Tech Stack
+
+- Angular 19  
+- Tailwind CSS  
+- Flowbite UI  
+- Ngx Pagination  
+- NgOwl Carousel  
+- Toastr  
+- Reactive Forms  
+- Postman  
+- JWT Authentication
+
+---
+
+## 📂 Folder Structure
+
+```
+src/
+├── app/
+│   ├── core/              → Global services, interceptors, guards
+│   ├── shared/            → Reusable components, pipes, interfaces
+│   ├── modules/           → Feature modules (auth, cart, wishlist, etc.)
+│   ├── components/        → Common layout & UI components
+│   └── assets/            → Icons, images, SVGs
+```
+
+---
+
 ## 🚀 Installation & Setup
 
 To run this project locally, follow these steps:
@@ -58,41 +86,6 @@ npm install -g @angular/cli
 ```
 
 > ℹ️ Optional: Setup environment variables if needed (e.g., for API base URLs)
-
----
-
-## 📸 Live Demo & Source Code
-
-🔗 **Live Preview:** [https://freshcart-online-ecommerce.vercel.app](https://freshcart-online-ecommerce.vercel.app)  
-📂 **GitHub Repository:** [https://github.com/Michael-Moris/E-Commerce-App](https://github.com/Michael-Moris/E-Commerce-App)
-
----
-
-## 🧠 Tech Stack
-
-- Angular 19  
-- Tailwind CSS  
-- Flowbite UI  
-- Ngx Pagination  
-- NgOwl Carousel  
-- Toastr  
-- Reactive Forms  
-- Postman  
-- JWT Authentication
-
----
-
-## 📂 Folder Structure
-
-```
-src/
-├── app/
-│   ├── core/              → Global services, interceptors, guards
-│   ├── shared/            → Reusable components, pipes, interfaces
-│   ├── modules/           → Feature modules (auth, cart, wishlist, etc.)
-│   ├── components/        → Common layout & UI components
-│   └── assets/            → Icons, images, SVGs
-```
 
 ---
 
